@@ -1,0 +1,9 @@
+/**
+ * Main stylesheet — Imports design system and all layers.
+ * Single entry point for index.html.
+ */
+
+@import url('css/design-system.css');
+@import url('css/base.css');
+@import url('css/components.css');
+@import url('css/sections.css');

@@ -1,0 +1,223 @@
+/**
+ * Components — Buttons, cards, animations (Apple-inspired)
+ */
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.875rem var(--space-xl);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  min-height: 48px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-large {
+  padding: 1.125rem var(--space-3xl);
+  font-size: var(--text-lg);
+  min-height: 56px;
+}
+
+@media (max-width: 640px) {
+  .btn {
+    padding: 0.75rem var(--space-lg);
+    font-size: var(--text-sm);
+  }
+  
+  .btn-large {
+    padding: 1rem var(--space-xl);
+    font-size: var(--text-base);
+  }
+}
+
+/* ========== Cards ========== */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+/* ========== Animations ========== */
+
+/* Fade up animation */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale animation */
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-spring);
+}
+
+.animate-scale.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide up animation */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-slide-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Float animation */
+.animate-float {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-float.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Viz animation */
+.animate-viz {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-viz.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in animation */
+.animate-slide-in {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-slide-in.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Delay utilities */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+
+/* Hero animations - always visible */
+.hero.in-view .animate-fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-scale,
+  .animate-slide-up,
+  .animate-float,
+  .animate-viz,
+  .animate-slide-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .animate-fade-up.in-view,
+  .animate-scale.in-view,
+  .animate-slide-up.in-view,
+  .animate-float.in-view,
+  .animate-viz.in-view,
+  .animate-slide-in.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ========== Number Counter Animation ========== */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.impact-number {
+  animation: countUp 0.6s var(--ease-out) forwards;
+}
